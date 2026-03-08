@@ -30,6 +30,8 @@ const MAX_SPLIT_PANE_COUNT = 4;
 
 type PreviewGenerationState = 'idle' | 'generating' | 'ready' | 'error';
 type SplitPaneRunState = 'idle' | 'running' | 'done';
+type SidebarThemeMode = 'terminal' | 'slate' | 'graphite';
+type SidebarTitleWeight = 'regular' | 'medium' | 'semibold';
 
 interface PreviewExplanation {
   assumptions: string[];
@@ -43,6 +45,19 @@ interface SplitPane {
   prompt: string;
   state: SplitPaneRunState;
   log: string[];
+}
+
+interface SessionThread {
+  id: string;
+  title: string;
+  description: string;
+  updated: string;
+}
+
+interface SidebarWorkspace {
+  id: string;
+  name: string;
+  threads: SessionThread[];
 }
 
 interface BootstrapState {
@@ -76,6 +91,81 @@ const SPLIT_PANE_LIBRARY = [
       'Investigate intermittent timeout in simulation sequence and provide likely root cause before patching.'
   }
 ] as const;
+
+const SIDEBAR_WORKSPACES: SidebarWorkspace[] = [
+  {
+    id: 'steinberger-scripts',
+    name: 'steinberger-scripts',
+    threads: [
+      {
+        id: 'thread-oracle-update',
+        title: 'Assess oracle subskill update need',
+        description: 'Review scope mismatch in oracle prompts and suggest a lower-friction update path.',
+        updated: '2d'
+      }
+    ]
+  },
+  {
+    id: 'meal_planner',
+    name: 'meal_planner',
+    threads: [
+      {
+        id: 'thread-predictive-planner',
+        title: 'Build predictive meal planner',
+        description: 'Prototype recommendation cards and evaluate weekly plan confidence signals.',
+        updated: '3d'
+      }
+    ]
+  },
+  {
+    id: 'code',
+    name: 'code',
+    threads: [
+      {
+        id: 'thread-codex-idea',
+        title: 'Initialize codex-idea folder',
+        description: 'Created MVP concept repo and scaffolded demo flow before implementation.',
+        updated: '58m'
+      },
+      {
+        id: 'thread-mit-license',
+        title: 'Add MIT license to poker-ideal-move',
+        description: 'Applied standard MIT text and verified repository license metadata.',
+        updated: '46m'
+      },
+      {
+        id: 'thread-gogcli',
+        title: 'Set up gogcli from GitHub',
+        description: 'Cloned and prepared local environment with CLI auth pre-checks.',
+        updated: '17h'
+      },
+      {
+        id: 'thread-codexbar',
+        title: 'Verify CodexBar auto update',
+        description: 'Checked update channel behavior and confirmed trigger conditions.',
+        updated: '17h'
+      },
+      {
+        id: 'thread-poker-app',
+        title: 'Build poker app for ideal moves',
+        description: 'Outlined UI state transitions and result visualization patterns.',
+        updated: '17h'
+      }
+    ]
+  },
+  {
+    id: 'triverge-app',
+    name: 'triverge-app',
+    threads: [
+      {
+        id: 'thread-review-prs',
+        title: 'Review PR 265 266 using Legend',
+        description: 'Summarize regressions by severity and map required follow-up tests.',
+        updated: '22h'
+      }
+    ]
+  }
+];
 
 const buildSplitPanes = (count: number): SplitPane[] =>
   SPLIT_PANE_LIBRARY.slice(0, count).map((item, index) => ({
@@ -325,6 +415,10 @@ export default function App() {
   const [previewError, setPreviewError] = useState<string | null>(null);
   const [shareMessage, setShareMessage] = useState<string>('');
   const [presenterMode, setPresenterMode] = useState(false);
+  const [sidebarThemeMode, setSidebarThemeMode] = useState<SidebarThemeMode>('terminal');
+  const [sidebarTitleWeight, setSidebarTitleWeight] = useState<SidebarTitleWeight>('medium');
+  const [showThreadDescriptions, setShowThreadDescriptions] = useState(true);
+  const [selectedThreadId, setSelectedThreadId] = useState('thread-codex-idea');
   const [splitPaneCount, setSplitPaneCount] = useState(DEFAULT_SPLIT_PANE_COUNT);
   const [splitPanes, setSplitPanes] = useState<SplitPane[]>(() => buildSplitPanes(DEFAULT_SPLIT_PANE_COUNT));
 
@@ -461,6 +555,7 @@ export default function App() {
   const shareUrl = useMemo(() => buildShareUrl(shareState), [shareState]);
   const runningSplitPaneCount = splitPanes.filter((pane) => pane.state === 'running').length;
   const completedSplitPaneCount = splitPanes.filter((pane) => pane.state === 'done').length;
+  const sidebarWeightClass = `session-weight-${sidebarTitleWeight}`;
 
   const handleSplitPaneCountChange = (value: string) => {
     const requested = Number.parseInt(value, 10);
@@ -1057,6 +1152,96 @@ export default function App() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="thread-sidebar-lab" aria-label="Codex thread sidebar concept">
+        <div className="sidebar-lab-head">
+          <div>
+            <p className="eyebrow">Another Codex App Concept</p>
+            <h2>Session Sidebar With Rich Context</h2>
+            <p>
+              Add short per-session descriptions, color modes, and font-weight tuning so the thread list is more
+              scannable than title-only rows.
+            </p>
+          </div>
+          <div className="sidebar-lab-controls">
+            <label htmlFor="sidebar-theme-mode">Sidebar color mode</label>
+            <select
+              id="sidebar-theme-mode"
+              aria-label="Sidebar color mode"
+              value={sidebarThemeMode}
+              onChange={(event) => setSidebarThemeMode(event.target.value as SidebarThemeMode)}
+            >
+              <option value="terminal">Terminal dark</option>
+              <option value="slate">Slate dusk</option>
+              <option value="graphite">Graphite glow</option>
+            </select>
+
+            <label htmlFor="sidebar-font-weight">Thread font weight</label>
+            <select
+              id="sidebar-font-weight"
+              aria-label="Thread font weight"
+              value={sidebarTitleWeight}
+              onChange={(event) => setSidebarTitleWeight(event.target.value as SidebarTitleWeight)}
+            >
+              <option value="regular">Regular</option>
+              <option value="medium">Medium</option>
+              <option value="semibold">Semibold</option>
+            </select>
+
+            <label className="sidebar-check" htmlFor="toggle-thread-descriptions">
+              <input
+                id="toggle-thread-descriptions"
+                type="checkbox"
+                checked={showThreadDescriptions}
+                onChange={(event) => setShowThreadDescriptions(event.target.checked)}
+              />
+              Show thread descriptions
+            </label>
+          </div>
+        </div>
+
+        <div className={`sidebar-mock sidebar-theme-${sidebarThemeMode} ${sidebarWeightClass}`}>
+          <div className="sidebar-static-actions">
+            <span>New thread</span>
+            <span>Automations</span>
+            <span>Skills</span>
+          </div>
+
+          <p className="sidebar-section-title">Threads</p>
+
+          <div className="sidebar-workspaces">
+            {SIDEBAR_WORKSPACES.map((workspace) => (
+              <section key={workspace.id} className="workspace-group">
+                <h3>{workspace.name}</h3>
+                <div className="workspace-threads">
+                  {workspace.threads.map((thread) => (
+                    <article
+                      key={thread.id}
+                      className={`thread-item ${selectedThreadId === thread.id ? 'thread-item-selected' : ''}`}
+                      onClick={() => setSelectedThreadId(thread.id)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault();
+                          setSelectedThreadId(thread.id);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Open ${thread.title}`}
+                    >
+                      <div className="thread-title-row">
+                        <p className="thread-title">{thread.title}</p>
+                        <span className="thread-updated">{thread.updated}</span>
+                      </div>
+                      {showThreadDescriptions ? <p className="thread-description">{thread.description}</p> : null}
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         </div>
       </section>
     </div>

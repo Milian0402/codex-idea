@@ -24,6 +24,10 @@ Codex Plan Preview Studio: an internal MVP demo that shows a guided "Plan -> Pre
   - 2-4 concurrent panes
   - visible prompt editor per pane
   - per-pane mock run status and output stream
+- Separate "Session Sidebar With Rich Context" section:
+  - Codex-like dark sidebar preview modes
+  - short thread descriptions in lighter gray beneath titles
+  - adjustable thread title weight (regular/medium/semibold)
 
 ## Hosted demo URL
 
