@@ -1,6 +1,16 @@
 # codex-idea
 
-Codex Plan Preview Studio: an internal MVP demo that shows a guided "Plan -> Preview -> Approve" workflow before any code is implemented.
+Codex Plan Preview Studio: an internal concept demo that shows a guided "Plan -> Preview -> Approve" workflow before any code is implemented.
+
+## Concept clarity (important)
+
+- This repository is a **product-idea sandbox**, not a production-ready Codex feature.
+- UI flows here are **mock concepts** and may not work well in real-world Codex usage.
+- There is **no real Codex execution integration**; outputs are simulated to communicate direction.
+- You can also treat this repo as a **structured notes app for Codex ideas**:
+  - capture hypotheses
+  - test interaction patterns visually
+  - document what seems promising vs what fails in practice
 
 ## MVP highlights
 
@@ -34,6 +44,8 @@ Codex Plan Preview Studio: an internal MVP demo that shows a guided "Plan -> Pre
 GitHub Pages target URL:
 
 - [https://milian0402.github.io/codex-idea/](https://milian0402.github.io/codex-idea/)
+
+This deployment is for concept review and discussion, not production use.
 
 ## Tech stack
 
