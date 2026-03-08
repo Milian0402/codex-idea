@@ -1,43 +1,48 @@
 # codex-idea
 
-Codex Plan Preview Studio: an internal concept demo that shows a guided "Plan -> Preview -> Approve" workflow before any code is implemented.
+Internal idea repo for Codex App UX concepts. This is intentionally a concept playground and can also be used as a structured notes app for testing product ideas.
 
-## Concept clarity (important)
+## What this repo is (and is not)
 
 - This repository is a **product-idea sandbox**, not a production-ready Codex feature.
 - UI flows here are **mock concepts** and may not work well in real-world Codex usage.
 - There is **no real Codex execution integration**; outputs are simulated to communicate direction.
-- You can also treat this repo as a **structured notes app for Codex ideas**:
-  - capture hypotheses
-  - test interaction patterns visually
-  - document what seems promising vs what fails in practice
+- It should be read as an **idea board with runnable demos**, not as a finalized spec.
 
-## MVP highlights
+## Ideas currently in this repo
 
-- Guided demo mode with 3 curated scenarios:
+1. **Plan Preview Studio**
+- Goal: reduce long build/rework loops by showing a pre-generated implementation preview before execution.
+- What the mock demonstrates:
   - `Simple UI Preview`
   - `Dashboard Preview`
   - `Workflow Preview`
-- Scenario switcher and reset flow for presenter-friendly replays.
-- Deterministic preview generation (`parsePlanToPreviewSpec`) with explicit preview explanation.
-- Approval simulation timeline with progress microstates.
-- Approval artifact output including:
-  - plan hash
-  - frozen preview spec snapshot
-  - approval timestamp
-  - simulation output summary
-- Shareability:
-  - deep-link state restore via URL `?state=...`
-  - artifact JSON export
-- Presenter mode toggle (fullscreen-first behavior with local fallback).
-- Separate "Codex Multi-Run Split Screens" section:
-  - 2-4 concurrent panes
+- Key concept features:
+  - scenario switcher + reset
+  - deterministic preview mapping (`parsePlanToPreviewSpec`)
+  - preview explanation (assumptions + mapped components)
+  - approval simulation + artifact snapshot
+  - deep-link state sharing + artifact export
+
+2. **Codex Multi-Run Split Screens**
+- Goal: let users run multiple Codex tasks in parallel while seeing each prompt clearly.
+- What the mock demonstrates:
+  - 2-4 split panes
   - visible prompt editor per pane
-  - per-pane mock run status and output stream
-- Separate "Session Sidebar With Rich Context" section:
-  - Codex-like dark sidebar preview modes
-  - short thread descriptions in lighter gray beneath titles
-  - adjustable thread title weight (regular/medium/semibold)
+  - per-pane run state and output stream
+
+3. **Session Sidebar With Rich Context**
+- Goal: improve thread scanning by adding context beyond title-only rows.
+- What the mock demonstrates:
+  - Codex-like dark sidebar color modes
+  - short description/subtitle under each thread title
+  - adjustable thread-title font weight
+
+## Why this format
+
+- Capture hypotheses quickly.
+- Compare UX options visually.
+- Keep notes on what looks promising vs what fails in practice.
 
 ## Hosted demo URL
 
