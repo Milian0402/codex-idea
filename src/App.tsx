@@ -25,13 +25,24 @@ const SIMULATION_STEPS = [
 ] as const;
 
 const MIN_PLAN_LENGTH = 40;
+const DEFAULT_SPLIT_PANE_COUNT = 3;
+const MAX_SPLIT_PANE_COUNT = 4;
 
 type PreviewGenerationState = 'idle' | 'generating' | 'ready' | 'error';
+type SplitPaneRunState = 'idle' | 'running' | 'done';
 
 interface PreviewExplanation {
   assumptions: string[];
   mappedComponents: string[];
   rationale: string;
+}
+
+interface SplitPane {
+  id: string;
+  title: string;
+  prompt: string;
+  state: SplitPaneRunState;
+  log: string[];
 }
 
 interface BootstrapState {
@@ -42,6 +53,68 @@ interface BootstrapState {
   artifact: ApprovalArtifact | null;
   simulationEvents: BuildSimulationEvent[];
 }
+
+const SPLIT_PANE_LIBRARY = [
+  {
+    title: 'Feature Build Lane',
+    prompt:
+      'Implement a profile settings page with clear save states and inline validation. Show each changed file before writing code.'
+  },
+  {
+    title: 'Refactor Lane',
+    prompt:
+      'Refactor duplicated API helpers into a shared client module and summarize migration impact before edits.'
+  },
+  {
+    title: 'Test Lane',
+    prompt:
+      'Add integration tests for approval flow and surface failing assertions with minimal repro steps.'
+  },
+  {
+    title: 'Debug Lane',
+    prompt:
+      'Investigate intermittent timeout in simulation sequence and provide likely root cause before patching.'
+  }
+] as const;
+
+const buildSplitPanes = (count: number): SplitPane[] =>
+  SPLIT_PANE_LIBRARY.slice(0, count).map((item, index) => ({
+    id: `split-pane-${index + 1}`,
+    title: item.title,
+    prompt: item.prompt,
+    state: 'idle',
+    log: []
+  }));
+
+const resizeSplitPanes = (current: SplitPane[], count: number): SplitPane[] => {
+  const next = buildSplitPanes(count);
+
+  return next.map((pane, index) => {
+    const existing = current[index];
+    if (!existing) {
+      return pane;
+    }
+
+    return {
+      ...pane,
+      prompt: existing.prompt,
+      state: existing.state,
+      log: existing.log
+    };
+  });
+};
+
+const splitPaneStateLabel = (state: SplitPaneRunState): string => {
+  if (state === 'running') {
+    return 'Running';
+  }
+
+  if (state === 'done') {
+    return 'Done';
+  }
+
+  return 'Idle';
+};
 
 const isPlanStatus = (value: unknown): value is PlanStatus =>
   value === 'drafting' || value === 'plan_complete' || value === 'preview_ready' || value === 'approved_simulation';
@@ -252,8 +325,11 @@ export default function App() {
   const [previewError, setPreviewError] = useState<string | null>(null);
   const [shareMessage, setShareMessage] = useState<string>('');
   const [presenterMode, setPresenterMode] = useState(false);
+  const [splitPaneCount, setSplitPaneCount] = useState(DEFAULT_SPLIT_PANE_COUNT);
+  const [splitPanes, setSplitPanes] = useState<SplitPane[]>(() => buildSplitPanes(DEFAULT_SPLIT_PANE_COUNT));
 
   const previewTimeoutRef = useRef<number | null>(null);
+  const splitPaneTimersRef = useRef<Record<string, number>>({});
 
   const scenario = useMemo(() => getScenarioById(scenarioId), [scenarioId]);
 
@@ -277,6 +353,10 @@ export default function App() {
       if (previewTimeoutRef.current) {
         window.clearTimeout(previewTimeoutRef.current);
       }
+
+      Object.values(splitPaneTimersRef.current).forEach((timerId) => {
+        window.clearTimeout(timerId);
+      });
     },
     []
   );
@@ -379,6 +459,108 @@ export default function App() {
   );
 
   const shareUrl = useMemo(() => buildShareUrl(shareState), [shareState]);
+  const runningSplitPaneCount = splitPanes.filter((pane) => pane.state === 'running').length;
+  const completedSplitPaneCount = splitPanes.filter((pane) => pane.state === 'done').length;
+
+  const handleSplitPaneCountChange = (value: string) => {
+    const requested = Number.parseInt(value, 10);
+    const nextCount = Number.isNaN(requested)
+      ? DEFAULT_SPLIT_PANE_COUNT
+      : Math.max(2, Math.min(MAX_SPLIT_PANE_COUNT, requested));
+
+    setSplitPaneCount(nextCount);
+    setSplitPanes((current) => {
+      const resized = resizeSplitPanes(current, nextCount);
+      const allowedIds = new Set(resized.map((pane) => pane.id));
+
+      Object.entries(splitPaneTimersRef.current).forEach(([paneId, timerId]) => {
+        if (!allowedIds.has(paneId)) {
+          window.clearTimeout(timerId);
+          delete splitPaneTimersRef.current[paneId];
+        }
+      });
+
+      return resized;
+    });
+  };
+
+  const resetSplitPanes = () => {
+    Object.values(splitPaneTimersRef.current).forEach((timerId) => {
+      window.clearTimeout(timerId);
+    });
+    splitPaneTimersRef.current = {};
+    setSplitPanes(buildSplitPanes(splitPaneCount));
+  };
+
+  const updateSplitPanePrompt = (paneId: string, nextPrompt: string) => {
+    const activeTimer = splitPaneTimersRef.current[paneId];
+    if (activeTimer) {
+      window.clearTimeout(activeTimer);
+      delete splitPaneTimersRef.current[paneId];
+    }
+
+    setSplitPanes((current) =>
+      current.map((pane) =>
+        pane.id === paneId
+          ? {
+              ...pane,
+              prompt: nextPrompt,
+              state: 'idle',
+              log: []
+            }
+          : pane
+      )
+    );
+  };
+
+  const runSplitPane = (paneId: string) => {
+    const pane = splitPanes.find((item) => item.id === paneId);
+    if (!pane || !pane.prompt.trim()) {
+      return;
+    }
+
+    const activeTimer = splitPaneTimersRef.current[paneId];
+    if (activeTimer) {
+      window.clearTimeout(activeTimer);
+    }
+
+    const startTimestamp = new Date().toLocaleTimeString();
+    setSplitPanes((current) =>
+      current.map((item) =>
+        item.id === paneId
+          ? {
+              ...item,
+              state: 'running',
+              log: [
+                `[${startTimestamp}] Prompt captured.`,
+                'Dispatching prompt to Codex workspace...',
+                `Prompt preview: ${item.prompt.slice(0, 92)}${item.prompt.length > 92 ? '...' : ''}`
+              ]
+            }
+          : item
+      )
+    );
+
+    splitPaneTimersRef.current[paneId] = window.setTimeout(() => {
+      const endTimestamp = new Date().toLocaleTimeString();
+
+      setSplitPanes((current) =>
+        current.map((item) =>
+          item.id === paneId
+            ? {
+                ...item,
+                state: 'done',
+                log: [
+                  ...item.log,
+                  `[${endTimestamp}] Rendered prompt and output visible in split pane.`
+                ]
+              }
+            : item
+        )
+      );
+      delete splitPaneTimersRef.current[paneId];
+    }, 900);
+  };
 
   const resetScenario = (nextScenarioId: string) => {
     const nextScenario = getScenarioById(nextScenarioId);
@@ -802,6 +984,81 @@ export default function App() {
           ) : null}
         </section>
       </main>
+
+      <section className="split-screen-lab" aria-label="Codex split screen lab">
+        <div className="split-lab-head">
+          <div>
+            <p className="eyebrow">Separate Concept For Codex App</p>
+            <h2>Multi-Run Split Screens</h2>
+            <p>
+              Run parallel Codex tasks in separate panes while keeping each prompt and output stream visible at all
+              times.
+            </p>
+          </div>
+          <div className="split-lab-controls">
+            <label htmlFor="split-pane-count">Split panes</label>
+            <select
+              id="split-pane-count"
+              aria-label="Split panes"
+              value={splitPaneCount}
+              onChange={(event) => handleSplitPaneCountChange(event.target.value)}
+            >
+              <option value={2}>2 panes</option>
+              <option value={3}>3 panes</option>
+              <option value={4}>4 panes</option>
+            </select>
+            <button type="button" onClick={resetSplitPanes}>
+              Reset Panes
+            </button>
+          </div>
+        </div>
+
+        <p className="hint">
+          {runningSplitPaneCount} running, {completedSplitPaneCount} completed, {splitPanes.length} visible.
+        </p>
+
+        <div className={`split-pane-grid split-pane-grid-${splitPaneCount}`}>
+          {splitPanes.map((pane, index) => (
+            <article key={pane.id} className="split-pane-card" aria-label={`Split pane ${index + 1}`}>
+              <header className="split-pane-head">
+                <h3>{pane.title}</h3>
+                <span className={`status-chip split-status-${pane.state}`}>{splitPaneStateLabel(pane.state)}</span>
+              </header>
+
+              <label htmlFor={`split-prompt-${pane.id}`}>Pane {index + 1} prompt</label>
+              <textarea
+                id={`split-prompt-${pane.id}`}
+                value={pane.prompt}
+                onChange={(event) => updateSplitPanePrompt(pane.id, event.target.value)}
+                rows={6}
+              />
+
+              <div className="split-pane-actions">
+                <button
+                  type="button"
+                  onClick={() => runSplitPane(pane.id)}
+                  disabled={!pane.prompt.trim() || pane.state === 'running'}
+                >
+                  {pane.state === 'running' ? 'Running...' : 'Run Mock Task'}
+                </button>
+              </div>
+
+              <div className="split-log">
+                <p className="eyebrow">Visible output stream</p>
+                {pane.log.length === 0 ? (
+                  <p className="muted">No output yet.</p>
+                ) : (
+                  <ul>
+                    {pane.log.map((entry, logIndex) => (
+                      <li key={`${pane.id}-log-${logIndex}`}>{entry}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

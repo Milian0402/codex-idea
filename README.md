@@ -20,6 +20,10 @@ Codex Plan Preview Studio: an internal MVP demo that shows a guided "Plan -> Pre
   - deep-link state restore via URL `?state=...`
   - artifact JSON export
 - Presenter mode toggle (fullscreen-first behavior with local fallback).
+- Separate "Codex Multi-Run Split Screens" section:
+  - 2-4 concurrent panes
+  - visible prompt editor per pane
+  - per-pane mock run status and output stream
 
 ## Hosted demo URL
 

@@ -561,9 +561,120 @@ button:disabled {
   overflow-x: auto;
 }
 
+.split-screen-lab {
+  margin-top: 1.1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  background: linear-gradient(140deg, #fff8ea, #eef5ff);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.split-lab-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.split-lab-head p {
+  max-width: 720px;
+  color: var(--ink-2);
+}
+
+.split-lab-controls {
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.split-pane-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.split-pane-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.split-pane-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.split-pane-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.split-pane-card {
+  border-radius: 14px;
+  border: 1px solid #d4dff3;
+  background: #ffffffd9;
+  padding: 0.72rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.split-pane-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.split-pane-head h3 {
+  font-size: 0.98rem;
+}
+
+.split-pane-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.split-log {
+  border-top: 1px dashed #d2deef;
+  padding-top: 0.5rem;
+}
+
+.split-log ul {
+  margin: 0.3rem 0 0;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.split-log li {
+  font-size: 0.82rem;
+  color: #303854;
+}
+
+.split-status-idle {
+  background: #f7ecdc;
+  border-color: #e3c89d;
+}
+
+.split-status-running {
+  background: #deecff;
+  border-color: #9fc2f2;
+}
+
+.split-status-done {
+  background: #dff4ea;
+  border-color: #9fd1b7;
+}
+
 @media (max-width: 1100px) {
   .explanation-grid {
     grid-template-columns: 1fr;
+  }
+
+  .split-pane-grid-3,
+  .split-pane-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -587,6 +698,20 @@ button:disabled {
   }
 
   .scenario-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .split-lab-head {
+    flex-direction: column;
+  }
+
+  .split-lab-controls {
+    width: 100%;
+  }
+
+  .split-pane-grid-2,
+  .split-pane-grid-3,
+  .split-pane-grid-4 {
     grid-template-columns: 1fr;
   }
 }
