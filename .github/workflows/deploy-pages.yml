@@ -33,19 +33,31 @@ jobs:
           cache: npm
 
       - name: Configure Pages
+        id: configure_pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
+        continue-on-error: true
+
+      - name: Skip deploy if Pages is unavailable
+        if: steps.configure_pages.outcome != 'success'
+        run: echo "GitHub Pages is not enabled or unavailable for this repository. Skipping deploy."
 
       - name: Install dependencies
+        if: steps.configure_pages.outcome == 'success'
         run: npm ci
 
       - name: Build app
+        if: steps.configure_pages.outcome == 'success'
         run: npm run build
 
       - name: Upload Pages artifact
+        if: steps.configure_pages.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
       - name: Deploy to Pages
+        if: steps.configure_pages.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
