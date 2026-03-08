@@ -1,15 +1,31 @@
 # codex-idea
 
-A React + Vite + TypeScript prototype that mocks a Codex Plan Mode workflow and shows a deterministic pre-generated implementation picture before any build is approved.
+Codex Plan Preview Studio: an internal MVP demo that shows a guided "Plan -> Preview -> Approve" workflow before any code is implemented.
 
-## What this demo does
+## MVP highlights
 
-- Simulates a Plan Mode flow with explicit states:
-  - `drafting -> plan_complete -> preview_ready -> approved_simulation`
-- Uses a deterministic parser (`parsePlanToPreviewSpec`) to convert plan text into a visual preview spec.
-- Renders one generated implementation picture on-screen in a two-pane UI.
-- Marks preview output as stale after revise/edit actions until regenerated.
-- Runs a fake build simulation timeline after `Approve Build` and ends with `Ready to execute for real`.
+- Guided demo mode with 3 curated scenarios:
+  - `Simple UI Preview`
+  - `Dashboard Preview`
+  - `Workflow Preview`
+- Scenario switcher and reset flow for presenter-friendly replays.
+- Deterministic preview generation (`parsePlanToPreviewSpec`) with explicit preview explanation.
+- Approval simulation timeline with progress microstates.
+- Approval artifact output including:
+  - plan hash
+  - frozen preview spec snapshot
+  - approval timestamp
+  - simulation output summary
+- Shareability:
+  - deep-link state restore via URL `?state=...`
+  - artifact JSON export
+- Presenter mode toggle (fullscreen-first behavior with local fallback).
+
+## Hosted demo URL
+
+GitHub Pages target URL:
+
+- [https://milian0402.github.io/codex-idea/](https://milian0402.github.io/codex-idea/)
 
 ## Tech stack
 
@@ -17,6 +33,7 @@ A React + Vite + TypeScript prototype that mocks a Codex Plan Mode workflow and 
 - Vite
 - TypeScript
 - Vitest + Testing Library
+- Playwright (single happy-path e2e script)
 
 ## Run locally
 
@@ -32,12 +49,27 @@ npm run test
 npm run build
 ```
 
-## Key interfaces
+Optional e2e script:
+
+```bash
+npx playwright install chromium
+npm run test:e2e
+```
+
+## CI and deployment
+
+- CI workflow (`.github/workflows/ci.yml`) runs test + build on push/PR.
+- Pages workflow (`.github/workflows/deploy-pages.yml`) builds and deploys `dist` on `main`.
+
+## Public interfaces
 
 - `PlanSession`: `id`, `userGoal`, `planText`, `status`, `updatedAt`
 - `PreviewSpec`: `productName`, `pageTitle`, `layoutSections`, `coreComponents`, `dataBlocks`, `visualTone`
 - `GeneratedPreview`: `spec`, `generatedAt`, `sourcePlanHash`
 - `BuildSimulationEvent`: `stepId`, `label`, `state`, `timestamp`
+- `DemoScenario`: `id`, `name`, `userGoal`, `planText`, `expectedTone`, `tags`
+- `ApprovalArtifact`: `artifactId`, `sourcePlanHash`, `generatedPreview`, `approvedAt`, `simulationEvents`, `summary`
+- `ShareState`: `scenarioId`, `session`, `generatedPreview`, `previewInvalidated`, `artifact?`
 
 ## License
 

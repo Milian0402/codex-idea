@@ -22,6 +22,8 @@ describe('App state flow', () => {
     await user.click(screen.getByRole('button', { name: /mark plan complete/i }));
     await user.click(screen.getByRole('button', { name: /generate preview/i }));
 
+    await screen.findByRole('heading', { name: /preview explanation/i });
+
     const approveButton = screen.getByRole('button', { name: /approve build/i });
     expect(approveButton).toBeEnabled();
 

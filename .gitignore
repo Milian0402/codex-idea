@@ -3,3 +3,5 @@ dist/
 .vite/
 coverage/
 .DS_Store
+playwright-report/
+test-results/

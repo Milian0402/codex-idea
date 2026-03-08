@@ -35,3 +35,29 @@ export interface BuildSimulationEvent {
   state: SimulationState;
   timestamp: string;
 }
+
+export interface DemoScenario {
+  id: string;
+  name: string;
+  userGoal: string;
+  planText: string;
+  expectedTone: string;
+  tags: string[];
+}
+
+export interface ApprovalArtifact {
+  artifactId: string;
+  sourcePlanHash: string;
+  generatedPreview: GeneratedPreview;
+  approvedAt: string;
+  simulationEvents: BuildSimulationEvent[];
+  summary: string;
+}
+
+export interface ShareState {
+  scenarioId: string;
+  session: PlanSession;
+  generatedPreview: GeneratedPreview | null;
+  previewInvalidated: boolean;
+  artifact?: ApprovalArtifact;
+}
