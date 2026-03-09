@@ -15,7 +15,7 @@ The website is the primary artifact: it is where the static concept pictures and
 
 ## Ideas currently in this repo
 
-1. **Plan Preview Studio**
+1. **Plan Preview Image suggestion**
 - Goal: reduce long build/rework loops by showing the intended implementation picture before execution.
 - Website treatment:
   - static picture example using the exact README reference image
