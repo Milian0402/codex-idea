@@ -59,13 +59,8 @@ Like this, where one could drag a chat to make it splitscreen or more
   - short description/subtitle under each thread title
   - adjustable thread-title font weight
 
-7. **Pull Request Company Skills Radar**
-- Goal: track pull-request workflow at the team level (not only individual level) and suggest process changes.
-- What the mock demonstrates:
-  - team-level PR metrics (open PRs, review lag, merged count)
-  - shared skill adoption and knowledge spread signals
-  - health status per team
-  - prioritized suggestions for what to change next based on optimization goal
+7. **Pull Request For Company Skills**
+- Goal: track workflow at the team level (not only individual level) and suggest process changes.
 
 8. **Plan Question UX**
 - Goal: make plan questions easier to answer by exposing both intent and rationale inline.
