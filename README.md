@@ -59,7 +59,7 @@ The website is the primary artifact: it is where the static concept pictures and
   - Codex-like dark sidebar color modes
   - short description/subtitle under each thread title
   - adjustable thread-title font weight
-  - linked screenshot from [`contextual-threads`](https://github.com/Milian0402/contextual-threads)
+  - one screenshot reference to show the sidebar treatment
 
 <img width="301" height="561" alt="Screenshot 2026-03-09 at 17 01 26" src="https://github.com/user-attachments/assets/22f7b90c-d3e9-4b20-9dca-0ae1e322f2be" />
 
@@ -74,7 +74,7 @@ The website is the primary artifact: it is where the static concept pictures and
 - Website treatment:
   - one picture reference
   - one brief explanation of why the second `(i)` matters
-  - linked screenshot from [`info-bubble-helper`](https://github.com/Milian0402/info-bubble-helper)
+  - one screenshot reference for the question helper pattern
 
 <img width="830" height="522" alt="Screenshot 2026-03-09 at 17 02 40" src="https://github.com/user-attachments/assets/e30a2bfb-2831-45bc-bae9-bdfa63a6a1eb" />
 
@@ -94,14 +94,6 @@ The website is the primary artifact: it is where the static concept pictures and
 - Use the website as the main place where concept pictures are incorporated and reviewed.
 - Keep notes on what looks promising vs what fails in practice.
 
-## Hosted demo URL
-
-GitHub Pages target URL:
-
-- [https://milian0402.github.io/codex-idea/](https://milian0402.github.io/codex-idea/)
-
-This deployment is for concept review and discussion, not production use.
-
 ## Tech stack
 
 - React 18
@@ -110,11 +102,18 @@ This deployment is for concept review and discussion, not production use.
 - Vitest + Testing Library
 - Playwright (single happy-path e2e script)
 
-## Run locally
+## Local preview
 
 ```bash
 npm install
 npm run dev
+```
+
+Then open the local URL printed by Vite in your browser.
+Usually this is:
+
+```text
+http://localhost:5173/
 ```
 
 ## Tests
@@ -135,16 +134,6 @@ npm run test:e2e
 
 - CI workflow (`.github/workflows/ci.yml`) runs test + build on push/PR.
 - Pages workflow (`.github/workflows/deploy-pages.yml`) builds and deploys `dist` on `main`.
-
-## Public interfaces
-
-- `PlanSession`: `id`, `userGoal`, `planText`, `status`, `updatedAt`
-- `PreviewSpec`: `productName`, `pageTitle`, `layoutSections`, `coreComponents`, `dataBlocks`, `visualTone`
-- `GeneratedPreview`: `spec`, `generatedAt`, `sourcePlanHash`
-- `BuildSimulationEvent`: `stepId`, `label`, `state`, `timestamp`
-- `DemoScenario`: `id`, `name`, `userGoal`, `planText`, `expectedTone`, `tags`
-- `ApprovalArtifact`: `artifactId`, `sourcePlanHash`, `generatedPreview`, `approvedAt`, `simulationEvents`, `summary`
-- `ShareState`: `scenarioId`, `session`, `generatedPreview`, `previewInvalidated`, `artifact?`
 
 ## License
 

@@ -7,7 +7,7 @@ describe('Plan question concept', () => {
 
     expect(
       screen.getAllByRole('img', {
-        name: /screenshot of the info bubble helper repo showing a question card with an explanatory info tooltip/i
+        name: /screenshot reference showing a question card with an explanatory info tooltip/i
       })
     ).toHaveLength(1);
     expect(

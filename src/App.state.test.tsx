@@ -10,17 +10,17 @@ describe('App README coverage', () => {
     expect(screen.getByRole('button', { name: /open phone emulator should be easier/i })).toBeInTheDocument();
   });
 
-  it('keeps the linked repo screenshots in their matching concept sections', () => {
+  it('keeps the screenshot references in their matching concept sections', () => {
     render(<App />);
 
     expect(
       screen.getAllByRole('img', {
-        name: /screenshot of the contextual threads repo showing a dark session sidebar next to a conversation view/i
+        name: /screenshot reference showing a dark session sidebar next to a conversation view/i
       })
     ).toHaveLength(1);
     expect(
       screen.getAllByRole('img', {
-        name: /screenshot of the info bubble helper repo showing a question card with an explanatory info tooltip/i
+        name: /screenshot reference showing a question card with an explanatory info tooltip/i
       })
     ).toHaveLength(1);
   });
