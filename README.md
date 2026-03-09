@@ -43,14 +43,23 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - aligns with OpenAI's description of the Codex app as a tool for managing multiple coding agents in parallel
   - reference: [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/)
 
-4. **Session Sidebar With Rich Context**
+4. **Trusted Repo Auto-Open**
+- Goal: skip repetitive repo selection when a trusted repository is already known and let Codex begin scanning immediately.
+- Suggested copy:
+  - "When opening Codex, if the repository is already trusted and selected, automatically load and start in that repo instead of prompting for selection."
+- Short version:
+  - "If a repo is already trusted, open Codex directly in that repository without requiring manual selection."
+- Clarified behavior:
+  - after opening, start scanning or indexing that repository automatically so Codex can begin reasoning without another setup step
+
+5. **Session Sidebar With Rich Context**
 - Goal: improve thread scanning by adding context beyond title-only rows.
 - What the mock demonstrates:
   - Codex-like dark sidebar color modes
   - short description/subtitle under each thread title
   - adjustable thread-title font weight
 
-5. **Pull Request Company Skills Radar**
+6. **Pull Request Company Skills Radar**
 - Goal: track pull-request workflow at the team level (not only individual level) and suggest process changes.
 - What the mock demonstrates:
   - team-level PR metrics (open PRs, review lag, merged count)
@@ -58,7 +67,7 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - health status per team
   - prioritized suggestions for what to change next based on optimization goal
 
-6. **Plan Question UX**
+7. **Plan Question UX**
 - Goal: make plan questions easier to answer by exposing both intent and rationale inline.
 - What the mock demonstrates:
   - a second `(i)` info affordance in plan questions
@@ -66,7 +75,7 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - one tooltip for "why this question"
   - clearer question context before user input
 
-7. **Codebase Memory Map (Moat)**
+8. **Codebase Memory Map (Moat)**
 - Goal: let Codex reason from an internal repository map first, instead of repeatedly re-reading files.
 - What the mock demonstrates:
   - indexed symbols, dependencies, ownership, and architecture notes
