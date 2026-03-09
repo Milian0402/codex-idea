@@ -45,7 +45,7 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
 
 5. **Phone Emulator Should Be Easier**
 - Suggested copy:
-  - "The phone emulator already exists in Codex, but it should be even easier to open and use for quick mobile testing."
+  - some things already exist but would be cool to have it inside codex
 
 6. **Session Sidebar With Rich Context**
 - Goal: improve thread scanning by adding context beyond title-only rows.
