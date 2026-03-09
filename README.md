@@ -34,6 +34,10 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
 - Short version:
   - "Add Chrome-like tabs to Codex so multiple coding sessions can be organized and switched between more easily."
 
+Like this, where one could drag a chat to make it splitscreen or more
+<img width="1489" height="738" alt="Screenshot 2026-03-09 at 16 30 20" src="https://github.com/user-attachments/assets/3e37eff1-fba8-42cd-b62f-1eca6d021ac7" />
+
+
 4. **Trusted Repo Auto-Open**
 - Goal: skip repetitive repo selection when a trusted repository is already known and let Codex begin scanning immediately.
 - Suggested copy:
