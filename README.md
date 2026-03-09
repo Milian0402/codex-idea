@@ -47,12 +47,11 @@ Like this, where one could drag a chat to make it splitscreen or more
 - Suggested copy:
   - some things already exist but would be cool to have it inside codex
 
-6. **Session Sidebar With Rich Context**
+6. **Session Sidebar With More and features**
 - Goal: improve thread scanning by adding context beyond title-only rows.
-- What the mock demonstrates:
-  - Codex-like dark sidebar color modes
-  - short description/subtitle under each thread title
-  - adjustable thread-title font weight
+
+<img width="301" height="561" alt="Screenshot 2026-03-09 at 17 01 26" src="https://github.com/user-attachments/assets/22f7b90c-d3e9-4b20-9dca-0ae1e322f2be" />
+
 
 7. **Pull Request For Company Skills**
 - Goal: track workflow at the team level (not only individual level) and suggest process changes.
@@ -64,6 +63,9 @@ Like this, where one could drag a chat to make it splitscreen or more
   - one tooltip for "what this asks"
   - one tooltip for "why this question"
   - clearer question context before user input
+
+<img width="830" height="522" alt="Screenshot 2026-03-09 at 17 02 40" src="https://github.com/user-attachments/assets/e30a2bfb-2831-45bc-bae9-bdfa63a6a1eb" />
+
 
 9. **Codebase Memory Map (Moat)**
 - Goal: let Codex reason from an internal repository map first, instead of repeatedly re-reading files.
