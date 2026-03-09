@@ -1,3 +1,5 @@
+hi tibo :)
+
 # codex-idea
 
 Internal idea repo for Codex App UX concepts. This is intentionally a concept playground and can also be used as a structured notes app for testing product ideas.
@@ -37,6 +39,32 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - Codex-like dark sidebar color modes
   - short description/subtitle under each thread title
   - adjustable thread-title font weight
+
+4. **Pull Request Company Skills Radar**
+- Goal: track pull-request workflow at the team level (not only individual level) and suggest process changes.
+- What the mock demonstrates:
+  - team-level PR metrics (open PRs, review lag, merged count)
+  - shared skill adoption and knowledge spread signals
+  - health status per team
+  - prioritized suggestions for what to change next based on optimization goal
+
+5. **Plan Question UX**
+- Goal: make plan questions easier to answer by exposing both intent and rationale inline.
+- What the mock demonstrates:
+  - a second `(i)` info affordance in plan questions
+  - one tooltip for "what this asks"
+  - one tooltip for "why this question"
+  - clearer question context before user input
+
+6. **Codebase Memory Map (Moat)**
+- Goal: let Codex reason from an internal repository map first, instead of repeatedly re-reading files.
+- What the mock demonstrates:
+  - indexed symbols, dependencies, ownership, and architecture notes
+  - memory-first reasoning path before reopening raw files
+  - faster grounding in larger repositories
+- AGENTS.md guidance:
+  - keep `AGENTS.md` focused and short (rules/workflows)
+  - avoid turning `AGENTS.md` into a large knowledge dump
 
 ## Why this format
 
