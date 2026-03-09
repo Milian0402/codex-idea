@@ -19,18 +19,12 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - `Simple UI Preview`
   - `Dashboard Preview`
   - `Workflow Preview`
-- Key concept features:
-  - scenario switcher + reset
-  - deterministic preview mapping (`parsePlanToPreviewSpec`)
-  - preview explanation (assumptions + mapped components)
-  - approval simulation + artifact snapshot
-  - deep-link state sharing + artifact export
 
 2. **Codex Multi-Run Split Screens**
 - Goal: let users run multiple Codex tasks in parallel while seeing each prompt clearly.
 - What the mock demonstrates:
   - 2-4 split panes
-  - visible prompt editor per pane
+  - visible prompt editor per pane, quite similar to coding directly in the terminal
   - per-pane run state and output stream
 
 3. **Chrome-Like Session Tabs**
