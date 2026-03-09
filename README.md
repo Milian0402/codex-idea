@@ -23,18 +23,16 @@ Mock picture:
 
 
 2. **Codex Multi-Run Split Screens**
-- Goal: let users run multiple Codex tasks in parallel while seeing each prompt clearly.
+- Goal: let users run multiple Codex tasks in parallel while seeing each prompt clearly. I'm still coding in terminals because it's way easier to split so I can see how codex is implementing things how I want it and I can steer it easier. Should be quick implementation on codex app
 - What the mock demonstrates:
   - 2-4 split panes
   - visible prompt editor per pane, quite similar to coding directly in the terminal
   - per-pane run state and output stream
 
 3. **Move the chat-threads in codex like Chrome-Like Session Tabs for multi-screen**
-- Goal: make multiple coding chats easier to manage and switch between without losing state.
+- Goal: follow-up on point 2 make multiple coding chats easier to manage and switch between without losing state.
 - Suggested copy:
-  - "For working across multiple coding contexts in Codex, add a tabbed interface similar to Chrome so each task, repo view, or agent session lives in its own tab, making it easier to switch quickly without losing context."
-- Short version:
-  - "Add Chrome-like tabs to Codex so multiple coding sessions can be organized and switched between more easily."
+  - "Add Chrome-like tabs to Codex for moving around chat threads so multiple coding sessions can be organized and switched between more easily."
 
 Like this, where one could drag a chat to make it splitscreen or more
 <img width="1489" height="778" alt="Screenshot 2026-03-09 at 16 33 15" src="https://github.com/user-attachments/assets/80f578c4-4712-44cb-8853-d837cd867fe5" />
