@@ -1,10 +1,5 @@
 import { act, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import App from './App';
-import { hashPlanText } from './lib/hash';
-import { parsePlanToPreviewSpec } from './lib/planParser';
-import { serializeShareState } from './lib/shareState';
-import type { ShareState } from './types';
 
 const setWindowWidth = (width: number) => {
   Object.defineProperty(window, 'innerWidth', {
@@ -16,67 +11,20 @@ const setWindowWidth = (width: number) => {
 
 describe('App integration scenarios', () => {
   afterEach(() => {
-    vi.useRealTimers();
     window.history.replaceState({}, '', '/');
   });
 
-  it(
-    'supports scenario switch and generates an approval artifact',
-    async () => {
-      const user = userEvent.setup();
-
-      render(<App />);
-
-      await user.selectOptions(screen.getByLabelText(/scenario switcher/i), 'dashboard-ui');
-      expect((screen.getByLabelText(/user goal/i) as HTMLTextAreaElement).value).toContain(
-        'stakeholders before implementation'
-      );
-
-      await user.click(screen.getByRole('button', { name: /mark plan complete/i }));
-      await user.click(screen.getByRole('button', { name: /generate preview/i }));
-
-      await screen.findByRole('heading', { name: /preview explanation/i }, { timeout: 10000 });
-
-      await user.click(screen.getByRole('button', { name: /approve build/i }));
-
-      await screen.findByText(/simulation complete/i, undefined, { timeout: 10000 });
-
-      expect(screen.getByRole('status')).toHaveTextContent(/ready to execute for real/i);
-      expect(screen.getByRole('heading', { name: /approval artifact/i })).toBeInTheDocument();
-      expect(screen.getByRole('button', { name: /export artifact json/i })).toBeEnabled();
-    },
-    15000
-  );
-
-  it('restores preview-ready state from deep link', () => {
-    const planText = 'Product: Linked Demo\nScreen: Shared Workspace\nTone: clean and simple';
-    const spec = parsePlanToPreviewSpec(planText);
-
-    const sharedState: ShareState = {
-      scenarioId: 'simple-ui',
-      session: {
-        id: 'shared-session',
-        userGoal: 'Test deep link restore',
-        planText,
-        status: 'preview_ready',
-        updatedAt: '2026-03-08T12:00:00.000Z'
-      },
-      generatedPreview: {
-        generatedAt: '2026-03-08T12:00:00.000Z',
-        sourcePlanHash: hashPlanText(planText),
-        spec
-      },
-      previewInvalidated: false
-    };
-
-    const encoded = serializeShareState(sharedState);
-    window.history.replaceState({}, '', `/?state=${encoded}`);
-
+  it('renders Plan Preview Studio as a static picture example', () => {
     render(<App />);
 
-    expect(screen.getByText(/preview ready/i)).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /preview explanation/i })).toBeInTheDocument();
-    expect(screen.getByLabelText(/scenario switcher/i)).toHaveValue('simple-ui');
+    expect(
+      screen.getByRole('img', {
+        name: /plan preview studio review image showing a codex-style planning conversation, a thought summary, and a preview card labeled this is how it could look/i
+      })
+    ).toBeInTheDocument();
+    expect(screen.getByText(/fixed plan-review reference/i)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /generate preview/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('combobox', { name: /scenario switcher/i })).not.toBeInTheDocument();
   });
 
   it('switches viewport mode label when resized', async () => {

@@ -1,0 +1,31 @@
+<svg width="1600" height="1020" viewBox="0 0 1600 1020" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1020" rx="36" fill="#D9DBE2"/>
+  <rect x="88" y="122" width="1424" height="776" rx="34" fill="#F8F8F8"/>
+
+  <rect x="166" y="384" width="876" height="446" rx="30" fill="#EEF2F8" stroke="#D3DCE9"/>
+  <text x="210" y="442" fill="#35507B" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Main workspace</text>
+
+  <rect x="210" y="496" width="792" height="118" rx="22" fill="#FFFFFF" stroke="#D3DCE9"/>
+  <rect x="238" y="528" width="220" height="22" rx="11" fill="#DEE7F5"/>
+  <rect x="238" y="568" width="294" height="22" rx="11" fill="#E8EEF9"/>
+  <rect x="556" y="528" width="398" height="58" rx="18" fill="#EFE4D2" stroke="#E0CDAE"/>
+  <text x="584" y="565" fill="#8A6840" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Open mobile preview</text>
+
+  <rect x="210" y="650" width="792" height="188" rx="22" fill="#FFFFFF" stroke="#D3DCE9"/>
+  <rect x="238" y="690" width="708" height="22" rx="11" fill="#E7EDF8"/>
+  <rect x="238" y="740" width="642" height="22" rx="11" fill="#DDE6F6"/>
+  <rect x="238" y="790" width="558" height="22" rx="11" fill="#E7EDF8"/>
+
+  <path d="M1080 620H1118" stroke="#8CA0C1" stroke-width="14" stroke-linecap="round"/>
+  <path d="M1102 592L1142 620L1102 648" stroke="#8CA0C1" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="1146" y="332" width="210" height="518" rx="42" fill="#0E1B43"/>
+  <rect x="1172" y="380" width="158" height="426" rx="28" fill="#FBFCFE"/>
+  <rect x="1226" y="348" width="52" height="8" rx="4" fill="#4A5C7B"/>
+  <rect x="1200" y="412" width="102" height="96" rx="18" fill="#DCE5F4"/>
+  <rect x="1200" y="556" width="112" height="20" rx="10" fill="#DCE5F4"/>
+  <rect x="1200" y="592" width="92" height="20" rx="10" fill="#E7EDF8"/>
+  <rect x="1192" y="646" width="112" height="110" rx="18" fill="#EFE4D2"/>
+  <text x="1248" y="696" text-anchor="middle" fill="#8A6840" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Mobile</text>
+  <text x="1248" y="724" text-anchor="middle" fill="#59647A" font-family="Arial, Helvetica, sans-serif" font-size="14">preview</text>
+</svg>

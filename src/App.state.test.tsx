@@ -1,35 +1,27 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import App from './App';
 
-describe('App state flow', () => {
-  it('enables preview generation only after marking plan complete', async () => {
-    const user = userEvent.setup();
+describe('App README coverage', () => {
+  it('surfaces the README-only picture concepts in the landing navigation', () => {
     render(<App />);
 
-    const generateButton = screen.getByRole('button', { name: /generate preview/i });
-    expect(generateButton).toBeDisabled();
-
-    await user.click(screen.getByRole('button', { name: /mark plan complete/i }));
-
-    expect(generateButton).toBeEnabled();
+    expect(screen.getByRole('button', { name: /open chrome-like session tabs/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /open trusted repo auto-open/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /open phone emulator should be easier/i })).toBeInTheDocument();
   });
 
-  it('marks preview stale and disables approval after plan edits', async () => {
-    const user = userEvent.setup();
+  it('keeps the linked repo screenshots in their matching concept sections', () => {
     render(<App />);
 
-    await user.click(screen.getByRole('button', { name: /mark plan complete/i }));
-    await user.click(screen.getByRole('button', { name: /generate preview/i }));
-
-    await screen.findByRole('heading', { name: /preview explanation/i });
-
-    const approveButton = screen.getByRole('button', { name: /approve build/i });
-    expect(approveButton).toBeEnabled();
-
-    await user.type(screen.getByLabelText(/plan draft/i), '\n7. Add a compact release banner.');
-
-    expect(screen.getByRole('alert')).toHaveTextContent(/regenerate before approving build/i);
-    expect(approveButton).toBeDisabled();
+    expect(
+      screen.getAllByRole('img', {
+        name: /screenshot of the contextual threads repo showing a dark session sidebar next to a conversation view/i
+      })
+    ).toHaveLength(1);
+    expect(
+      screen.getAllByRole('img', {
+        name: /screenshot of the info bubble helper repo showing a question card with an explanatory info tooltip/i
+      })
+    ).toHaveLength(1);
   });
 });

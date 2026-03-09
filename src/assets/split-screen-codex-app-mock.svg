@@ -1,0 +1,148 @@
+<svg width="1600" height="1020" viewBox="0 0 1600 1020" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="60" x2="1500" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E2634"/>
+      <stop offset="1" stop-color="#111722"/>
+    </linearGradient>
+    <filter id="shadow" x="74" y="72" width="1452" height="896" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="22"/>
+      <feGaussianBlur stdDeviation="24"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.03 0 0 0 0 0.05 0 0 0 0 0.09 0 0 0 0.35 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1020" rx="30" fill="url(#bg)"/>
+  <text x="92" y="94" fill="#C1CCE1" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">
+    Codex App Multi-Run Mock
+  </text>
+  <text x="92" y="132" fill="#7F8AA3" font-family="Arial, Helvetica, sans-serif" font-size="22">
+    Same idea, translated into a more native Codex-style layout
+  </text>
+
+  <g filter="url(#shadow)">
+    <rect x="82" y="168" width="1436" height="760" rx="28" fill="#121925" stroke="#3F4C62"/>
+    <rect x="82" y="168" width="1436" height="76" rx="28" fill="#171F2C"/>
+    <text x="120" y="214" fill="#F3F7FF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">
+      Codex
+    </text>
+    <rect x="232" y="188" width="176" height="36" rx="18" fill="#232D3D"/>
+    <text x="258" y="212" fill="#D5DEEF" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">
+      Split Runs
+    </text>
+    <rect x="1276" y="188" width="204" height="36" rx="18" fill="#222C3B"/>
+    <text x="1306" y="212" fill="#A8B5CC" font-family="Arial, Helvetica, sans-serif" font-size="17">
+      4 active workspaces
+    </text>
+
+    <rect x="108" y="270" width="234" height="624" rx="20" fill="#151E2B" stroke="#33435D"/>
+    <text x="136" y="314" fill="#B7C4DB" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="1.4">
+      ACTIVE THREADS
+    </text>
+    <rect x="128" y="344" width="194" height="78" rx="16" fill="#1D2A3B"/>
+    <text x="148" y="382" fill="#F5F8FE" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">
+      Feature lane
+    </text>
+    <text x="148" y="408" fill="#94A2BE" font-family="Arial, Helvetica, sans-serif" font-size="14">
+      landing page delivery
+    </text>
+    <rect x="128" y="438" width="194" height="78" rx="16" fill="#182230"/>
+    <text x="148" y="476" fill="#E1E8F5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">
+      Review lane
+    </text>
+    <text x="148" y="502" fill="#93A1BC" font-family="Arial, Helvetica, sans-serif" font-size="14">
+      PR comment follow-up
+    </text>
+    <rect x="128" y="532" width="194" height="78" rx="16" fill="#182230"/>
+    <text x="148" y="570" fill="#E1E8F5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">
+      Debug lane
+    </text>
+    <text x="148" y="596" fill="#93A1BC" font-family="Arial, Helvetica, sans-serif" font-size="14">
+      flaky timeout investigation
+    </text>
+
+    <rect x="374" y="270" width="1118" height="624" rx="20" fill="#101721" stroke="#33435D"/>
+
+    <rect x="398" y="294" width="520" height="274" rx="18" fill="#171F2C" stroke="#3A4961"/>
+    <text x="426" y="334" fill="#F3F7FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">
+      Feature Build
+    </text>
+    <rect x="778" y="312" width="112" height="28" rx="14" fill="#1F6A60"/>
+    <text x="806" y="331" fill="#E9FFF8" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">
+      Running
+    </text>
+    <rect x="426" y="360" width="464" height="60" rx="12" fill="#242F40"/>
+    <text x="446" y="397" fill="#F5F9FF" font-family="Courier New, monospace" font-size="18">
+      Build a landing page and show every changed file before edits.
+    </text>
+    <text x="426" y="456" fill="#A9B6CC" font-family="Courier New, monospace" font-size="17">
+      &gt; Scanning current routes and component entry points...
+    </text>
+    <text x="426" y="486" fill="#A9B6CC" font-family="Courier New, monospace" font-size="17">
+      &gt; Drafting file plan for App.tsx, styles.css, README.md
+    </text>
+    <text x="426" y="516" fill="#D7E2F2" font-family="Courier New, monospace" font-size="17">
+      &gt; Ready to show changed files before patching
+    </text>
+
+    <rect x="948" y="294" width="520" height="274" rx="18" fill="#171F2C" stroke="#3A4961"/>
+    <text x="976" y="334" fill="#F3F7FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">
+      Review Lane
+    </text>
+    <rect x="1328" y="312" width="112" height="28" rx="14" fill="#274C82"/>
+    <text x="1360" y="331" fill="#EEF4FF" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">
+      Ready
+    </text>
+    <rect x="976" y="360" width="464" height="60" rx="12" fill="#242F40"/>
+    <text x="996" y="397" fill="#F5F9FF" font-family="Courier New, monospace" font-size="18">
+      Summarize review risk by team, then suggest next actions.
+    </text>
+    <text x="976" y="456" fill="#A9B6CC" font-family="Courier New, monospace" font-size="17">
+      &gt; Review lag is highest in Platform this week
+    </text>
+    <text x="976" y="486" fill="#D7E2F2" font-family="Courier New, monospace" font-size="17">
+      &gt; Suggest rotating shared review ownership
+    </text>
+
+    <rect x="398" y="588" width="520" height="274" rx="18" fill="#171F2C" stroke="#3A4961"/>
+    <text x="426" y="628" fill="#F3F7FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">
+      Debug Lane
+    </text>
+    <rect x="786" y="606" width="104" height="28" rx="14" fill="#6D5330"/>
+    <text x="812" y="625" fill="#FFF6E5" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">
+      Warm
+    </text>
+    <rect x="426" y="654" width="464" height="60" rx="12" fill="#242F40"/>
+    <text x="446" y="691" fill="#F5F9FF" font-family="Courier New, monospace" font-size="18">
+      Investigate the flaky timeout before changing implementation.
+    </text>
+    <text x="426" y="750" fill="#A9B6CC" font-family="Courier New, monospace" font-size="17">
+      &gt; Polling interval overlaps with stale state reset
+    </text>
+    <text x="426" y="780" fill="#D7E2F2" font-family="Courier New, monospace" font-size="17">
+      &gt; Likely fix: cancel timers when pane count changes
+    </text>
+
+    <rect x="948" y="588" width="520" height="274" rx="18" fill="#171F2C" stroke="#3A4961"/>
+    <text x="976" y="628" fill="#F3F7FF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">
+      Test Lane
+    </text>
+    <rect x="1336" y="606" width="104" height="28" rx="14" fill="#235B48"/>
+    <text x="1361" y="625" fill="#E6FFF5" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">
+      Done
+    </text>
+    <rect x="976" y="654" width="464" height="60" rx="12" fill="#242F40"/>
+    <text x="996" y="691" fill="#F5F9FF" font-family="Courier New, monospace" font-size="18">
+      Add regression coverage for the new gallery concept cards.
+    </text>
+    <text x="976" y="750" fill="#A9B6CC" font-family="Courier New, monospace" font-size="17">
+      &gt; 12 test files green
+    </text>
+    <text x="976" y="780" fill="#D7E2F2" font-family="Courier New, monospace" font-size="17">
+      &gt; Build ready for commit and push
+    </text>
+  </g>
+</svg>

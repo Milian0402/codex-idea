@@ -4,6 +4,8 @@ hi tibo :)
 
 Internal idea repo for Codex App UX concepts. This is intentionally a concept playground and can also be used as a structured notes app for testing product ideas.
 
+The website is the primary artifact: it is where the static concept pictures and focused mocks are collected into one place.
+
 ## What this repo is (and is not)
 
 - This repository is a **product-idea sandbox**, not a production-ready Codex feature.
@@ -13,66 +15,74 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
 
 ## Ideas currently in this repo
 
-1. **Plan Preview With an Image**
-- Goal: reduce long build/rework loops by showing a pre-generated implementation preview before execution.
-- When one works on a large project and wants to implement it, sometimes codex could completely misunderstand which the user only really understands after waiting a long time. Visualising a mock image makes it easier to know if it correctly understood what the user wanted.
+1. **Plan Preview Studio**
+- Goal: reduce long build/rework loops by showing the intended implementation picture before execution.
+- Website treatment:
+  - static picture example using the exact README reference image
+  - kept intentionally simple so it reads as an approval step, not as a toy demo
 
-Mock picture:
-<img width="363" height="634" alt="Screenshot 2026-03-09 at 16 39 19" src="https://github.com/user-attachments/assets/a5adfe0a-0bad-4009-abdc-e4279c0848dc" />
-
-
+<img width="363" height="634" alt="Plan Preview Studio reference" src="https://github.com/user-attachments/assets/a5adfe0a-0bad-4009-abdc-e4279c0848dc" />
 
 2. **Codex Multi-Run Split Screens**
-- Goal: let users run multiple Codex tasks in parallel while seeing each prompt clearly. I'm still coding in terminals because it's way easier to split so I can see how codex is implementing things how I want it and I can steer it easier. Should be quick implementation on codex app
-- What the mock demonstrates:
-  - 2-4 split panes
-  - visible prompt editor per pane, quite similar to coding directly in the terminal
-  - per-pane run state and output stream
+- Goal: let users run multiple Codex tasks in parallel while seeing each prompt clearly.
+- Website treatment:
+  - one large split-screen reference instead of visible example panes
+  - based on the shared multi-terminal screenshot so the prompts stay easy to read
 
-3. **Move the chat-threads in codex like Chrome-Like Session Tabs for multi-screen**
-- Goal: follow-up on point 2 make multiple coding chats easier to manage and switch between without losing state.
+3. **Chrome-Like Session Tabs**
+- Goal: make multiple coding contexts easier to manage and switch between without losing state.
+- Website treatment:
+  - static picture section using the exact posted side-by-side browser reference
+  - focus on keeping the Codex conversation docked next to the active page as a movable QoL view
 - Suggested copy:
   - "Add Chrome-like tabs to Codex for moving around chat threads so multiple coding sessions can be organized and switched between more easily."
 
-Like this, where one could drag a chat to make it splitscreen or more
-<img width="1489" height="778" alt="Screenshot 2026-03-09 at 16 33 15" src="https://github.com/user-attachments/assets/80f578c4-4712-44cb-8853-d837cd867fe5" />
+<img width="1489" height="778" alt="Chrome-Like Session Tabs reference" src="https://github.com/user-attachments/assets/80f578c4-4712-44cb-8853-d837cd867fe5" />
 
-
-4. **Trusted Repo Auto-Scan**
-- Goal: skip repetitive repo scans when a trusted repository is already known and let Codex begin scanning immediately.
+4. **Trusted Repo Auto-Open**
+- Goal: skip repetitive repo selection when a trusted repository is already known and let Codex begin scanning immediately.
+- Website treatment:
+  - static picture section showing an iPhone-style toggle: `Switch on auto scanning when opening`
 - Suggested copy:
-  - "When opening Codex, if the repository is already trusted and selected, automatically load and start in that repo instead of waiting to     prompt. would need user to confirm it before though
+  - "When opening Codex, if the repository is already trusted and selected, automatically load and start in that repo instead of waiting to prompt."
 
 5. **Phone Emulator Should Be Easier**
+- Goal: make quick mobile testing easier to reach from the main Codex workspace.
+- Website treatment:
+  - static picture section showing a quick-open mobile preview path
 - Suggested copy:
   - some things already exist but would be cool to have it inside codex
 
 6. **Session Sidebar With More and features**
 - Goal: improve thread scanning by adding context beyond title-only rows.
+- Website treatment:
+  - Codex-like dark sidebar color modes
+  - short description/subtitle under each thread title
+  - adjustable thread-title font weight
+  - linked screenshot from [`contextual-threads`](https://github.com/Milian0402/contextual-threads)
 
 <img width="301" height="561" alt="Screenshot 2026-03-09 at 17 01 26" src="https://github.com/user-attachments/assets/22f7b90c-d3e9-4b20-9dca-0ae1e322f2be" />
 
-
-7. **Pull Request For Company Skills**
-- Goal: track workflow at the team level (not only individual level) and suggest process changes.
+7. **Pull Request Company Skills Radar**
+- Goal: track pull-request workflow at the team level (not only individual level) and suggest process changes.
+- Website treatment:
+  - simplified explanation of where the underlying team skill should change
+  - short sentences instead of a dense dashboard
 
 8. **Plan Question UX**
 - Goal: make plan questions easier to answer by exposing both intent and rationale inline.
-- What the mock demonstrates:
-  - a second `(i)` info affordance in plan questions
-  - one tooltip for "what this asks"
-  - one tooltip for "why this question"
-  - clearer question context before user input
+- Website treatment:
+  - one picture reference
+  - one brief explanation of why the second `(i)` matters
+  - linked screenshot from [`info-bubble-helper`](https://github.com/Milian0402/info-bubble-helper)
 
 <img width="830" height="522" alt="Screenshot 2026-03-09 at 17 02 40" src="https://github.com/user-attachments/assets/e30a2bfb-2831-45bc-bae9-bdfa63a6a1eb" />
 
-
 9. **Codebase Memory Map (Moat)**
 - Goal: let Codex reason from an internal repository map first, instead of repeatedly re-reading files.
-- What the mock demonstrates:
-  - indexed symbols, dependencies, ownership, and architecture notes
-  - memory-first reasoning path before reopening raw files
-  - faster grounding in larger repositories
+- Website treatment:
+  - simplified summary cards for symbols, dependencies, and ownership
+  - keep `AGENTS.md` short while storing richer repo context elsewhere
 - AGENTS.md guidance:
   - keep `AGENTS.md` focused and short (rules/workflows)
   - avoid turning `AGENTS.md` into a large knowledge dump
@@ -81,6 +91,7 @@ Like this, where one could drag a chat to make it splitscreen or more
 
 - Capture hypotheses quickly.
 - Compare UX options visually.
+- Use the website as the main place where concept pictures are incorporated and reviewed.
 - Keep notes on what looks promising vs what fails in practice.
 
 ## Hosted demo URL

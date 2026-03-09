@@ -1,35 +1,22 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import App from './App';
 
 describe('Split screen lab', () => {
-  afterEach(() => {
-    vi.useRealTimers();
-  });
-
-  it('supports changing visible split pane count', async () => {
-    const user = userEvent.setup();
+  it('shows the large split-screen picture references', () => {
     render(<App />);
 
-    await user.selectOptions(screen.getByLabelText(/^split panes$/i), '4');
-
-    expect(screen.getAllByLabelText(/pane \d+ prompt/i)).toHaveLength(4);
+    expect(
+      screen.getByRole('img', {
+        name: /terminal layout study inspired by a multi-terminal codex screenshot, showing three dark panes with visible prompts and responses/i
+      })
+    ).toBeInTheDocument();
+    expect(screen.getByText(/one clear reference based on the shared multi-terminal screenshot/i)).toBeInTheDocument();
   });
 
-  it(
-    'runs a split pane task and shows visible output stream',
-    async () => {
-      const user = userEvent.setup();
+  it('does not show the old split pane prompt examples in the visible UI', () => {
+    render(<App />);
 
-      render(<App />);
-
-      await user.click(screen.getAllByRole('button', { name: /run mock task/i })[0]);
-      expect(screen.getByText(/dispatching prompt to codex workspace/i)).toBeInTheDocument();
-
-      expect(
-        await screen.findByText(/rendered prompt and output visible in split pane/i, undefined, { timeout: 3000 })
-      ).toBeInTheDocument();
-    },
-    10000
-  );
+    expect(screen.queryByRole('heading', { name: /feature build lane/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: /refactor lane/i })).not.toBeInTheDocument();
+  });
 });

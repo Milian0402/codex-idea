@@ -1,0 +1,16 @@
+<svg width="1600" height="1020" viewBox="0 0 1600 1020" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1020" rx="36" fill="#D9DBE2"/>
+
+  <rect x="612" y="164" width="376" height="690" rx="52" fill="#111A3F"/>
+  <rect x="636" y="214" width="328" height="590" rx="34" fill="#F8F8F8"/>
+  <rect x="730" y="186" width="140" height="8" rx="4" fill="#506183"/>
+
+  <text x="694" y="292" fill="#35507B" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Startup</text>
+
+  <rect x="668" y="352" width="264" height="142" rx="24" fill="#FFFFFF" stroke="#D3DCE9"/>
+  <text x="692" y="398" fill="#26324E" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Switch on auto</text>
+  <text x="692" y="424" fill="#26324E" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">scanning when</text>
+  <text x="692" y="450" fill="#26324E" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">opening</text>
+  <rect x="846" y="390" width="58" height="34" rx="17" fill="#34C759"/>
+  <circle cx="884" cy="407" r="14" fill="#FFFFFF"/>
+</svg>
