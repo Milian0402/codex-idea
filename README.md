@@ -33,9 +33,6 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - "For working across multiple coding contexts in Codex, add a tabbed interface similar to Chrome so each task, repo view, or agent session lives in its own tab, making it easier to switch quickly without losing context."
 - Short version:
   - "Add Chrome-like tabs to Codex so multiple coding sessions can be organized and switched between more easily."
-- Why it fits:
-  - aligns with OpenAI's description of the Codex app as a tool for managing multiple coding agents in parallel
-  - reference: [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/)
 
 4. **Trusted Repo Auto-Open**
 - Goal: skip repetitive repo selection when a trusted repository is already known and let Codex begin scanning immediately.
