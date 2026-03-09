@@ -32,8 +32,8 @@ Mock picture:
   - visible prompt editor per pane, quite similar to coding directly in the terminal
   - per-pane run state and output stream
 
-3. **Chrome-Like Session Tabs**
-- Goal: make multiple coding contexts easier to manage and switch between without losing state.
+3. **Move the chat-threads in codex like Chrome-Like Session Tabs for multi-screen**
+- Goal: make multiple coding chats easier to manage and switch between without losing state.
 - Suggested copy:
   - "For working across multiple coding contexts in Codex, add a tabbed interface similar to Chrome so each task, repo view, or agent session lives in its own tab, making it easier to switch quickly without losing context."
 - Short version:
