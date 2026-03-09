@@ -15,10 +15,7 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
 
 1. **Plan Preview With an Image**
 - Goal: reduce long build/rework loops by showing a pre-generated implementation preview before execution.
-- What the mock demonstrates:
-  - `Simple UI Preview`
-  - `Dashboard Preview`
-  - `Workflow Preview`
+- When one works on a large project and wants to implement it, sometimes codex could completely misunderstand which the user only really understands after waiting a long time. Visualising a mock image makes it easier to know if it correctly understood what the user wanted.
 
 Mock picture:
 <img width="363" height="634" alt="Screenshot 2026-03-09 at 16 39 19" src="https://github.com/user-attachments/assets/a5adfe0a-0bad-4009-abdc-e4279c0848dc" />
