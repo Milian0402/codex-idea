@@ -13,7 +13,7 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
 
 ## Ideas currently in this repo
 
-1. **Plan Preview Studio**
+1. **Plan Preview With an Image**
 - Goal: reduce long build/rework loops by showing a pre-generated implementation preview before execution.
 - What the mock demonstrates:
   - `Simple UI Preview`
