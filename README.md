@@ -52,14 +52,18 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
 - Clarified behavior:
   - after opening, start scanning or indexing that repository automatically so Codex can begin reasoning without another setup step
 
-5. **Session Sidebar With Rich Context**
+5. **Phone Emulator Should Be Easier**
+- Suggested copy:
+  - "The phone emulator already exists in Codex, but it should be even easier to open and use for quick mobile testing."
+
+6. **Session Sidebar With Rich Context**
 - Goal: improve thread scanning by adding context beyond title-only rows.
 - What the mock demonstrates:
   - Codex-like dark sidebar color modes
   - short description/subtitle under each thread title
   - adjustable thread-title font weight
 
-6. **Pull Request Company Skills Radar**
+7. **Pull Request Company Skills Radar**
 - Goal: track pull-request workflow at the team level (not only individual level) and suggest process changes.
 - What the mock demonstrates:
   - team-level PR metrics (open PRs, review lag, merged count)
@@ -67,7 +71,7 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - health status per team
   - prioritized suggestions for what to change next based on optimization goal
 
-7. **Plan Question UX**
+8. **Plan Question UX**
 - Goal: make plan questions easier to answer by exposing both intent and rationale inline.
 - What the mock demonstrates:
   - a second `(i)` info affordance in plan questions
@@ -75,7 +79,7 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - one tooltip for "why this question"
   - clearer question context before user input
 
-8. **Codebase Memory Map (Moat)**
+9. **Codebase Memory Map (Moat)**
 - Goal: let Codex reason from an internal repository map first, instead of repeatedly re-reading files.
 - What the mock demonstrates:
   - indexed symbols, dependencies, ownership, and architecture notes
