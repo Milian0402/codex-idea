@@ -21,7 +21,8 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - `Workflow Preview`
 
 Mock picture:
-<img width="404" height="634" alt="Screenshot 2026-03-09 at 16 38 34" src="https://github.com/user-attachments/assets/84ea4e41-62cf-4dab-bd98-dc450e117ae8" />
+<img width="363" height="634" alt="Screenshot 2026-03-09 at 16 39 19" src="https://github.com/user-attachments/assets/a5adfe0a-0bad-4009-abdc-e4279c0848dc" />
+
 
 
 2. **Codex Multi-Run Split Screens**
