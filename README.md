@@ -20,6 +20,10 @@ Internal idea repo for Codex App UX concepts. This is intentionally a concept pl
   - `Dashboard Preview`
   - `Workflow Preview`
 
+Mock picture:
+<img width="404" height="634" alt="Screenshot 2026-03-09 at 16 38 34" src="https://github.com/user-attachments/assets/84ea4e41-62cf-4dab-bd98-dc450e117ae8" />
+
+
 2. **Codex Multi-Run Split Screens**
 - Goal: let users run multiple Codex tasks in parallel while seeing each prompt clearly.
 - What the mock demonstrates:
