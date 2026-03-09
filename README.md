@@ -38,14 +38,10 @@ Like this, where one could drag a chat to make it splitscreen or more
 <img width="1489" height="778" alt="Screenshot 2026-03-09 at 16 33 15" src="https://github.com/user-attachments/assets/80f578c4-4712-44cb-8853-d837cd867fe5" />
 
 
-4. **Trusted Repo Auto-Open**
-- Goal: skip repetitive repo selection when a trusted repository is already known and let Codex begin scanning immediately.
+4. **Trusted Repo Auto-Scan**
+- Goal: skip repetitive repo scans when a trusted repository is already known and let Codex begin scanning immediately.
 - Suggested copy:
-  - "When opening Codex, if the repository is already trusted and selected, automatically load and start in that repo instead of prompting for selection."
-- Short version:
-  - "If a repo is already trusted, open Codex directly in that repository without requiring manual selection."
-- Clarified behavior:
-  - after opening, start scanning or indexing that repository automatically so Codex can begin reasoning without another setup step
+  - "When opening Codex, if the repository is already trusted and selected, automatically load and start in that repo instead of waiting to     prompt. would need user to confirm it before though
 
 5. **Phone Emulator Should Be Easier**
 - Suggested copy:
