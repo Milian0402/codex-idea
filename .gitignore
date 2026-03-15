@@ -5,3 +5,10 @@ coverage/
 .DS_Store
 playwright-report/
 test-results/
+
+# commitmaxxer:max-edits:max-edits-hygiene:start
+# Local tooling
+.DS_Store
+*.swp
+*.swo
+# commitmaxxer:max-edits:max-edits-hygiene:end
