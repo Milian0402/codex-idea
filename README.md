@@ -1,5 +1,3 @@
-hi tibo :)
-
 # codex-idea
 
 Internal idea repo for Codex App UX concepts. This is intentionally a concept playground and can also be used as a structured notes app for testing product ideas.
@@ -9,9 +7,9 @@ The website is the primary artifact: it is where the static concept pictures and
 ## What this repo is (and is not)
 
 - This repository is a **product-idea sandbox**, not a production-ready Codex feature.
-- UI flows here are **mock concepts** and may not work well in real-world Codex usage.
+- UI flows here are **mock concepts**
 - There is **no real Codex execution integration**; outputs are simulated to communicate direction.
-- It should be read as an **idea board with runnable demos**, not as a finalized spec.
+- It should be read as an **idea board**, not as a finalized spec.
 
 ## Ideas currently in this repo
 
@@ -78,7 +76,10 @@ The website is the primary artifact: it is where the static concept pictures and
 
 <img width="830" height="522" alt="Screenshot 2026-03-09 at 17 02 40" src="https://github.com/user-attachments/assets/e30a2bfb-2831-45bc-bae9-bdfa63a6a1eb" />
 
-9. **Codebase Memory Map (Moat)**
+8. **Make it possible to reference previous chats and compact it**
+-Nice QoL if some previous chat was cooking and I don't wanna have to scroll up and copy things from it
+
+10. **Codebase Memory Map (Moat but unsure)**
 - Goal: let Codex reason from an internal repository map first, instead of repeatedly re-reading files.
 - Website treatment:
   - simplified summary cards for symbols, dependencies, and ownership
