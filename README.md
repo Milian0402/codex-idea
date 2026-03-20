@@ -88,6 +88,9 @@ The website is the primary artifact: it is where the static concept pictures and
   - keep `AGENTS.md` focused and short (rules/workflows)
   - avoid turning `AGENTS.md` into a large knowledge dump
 
+11. **Some elegant way to keep on prompting when codex is asking for a bunch of permissions**
+    -I occasionally get blocked by promptign due to codex asks for permissions. Sometimes I don't want to auto accept everything but my prompts can get lost or is just annoying
+
 ## Why this format
 
 - Capture hypotheses quickly.
