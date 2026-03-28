@@ -89,7 +89,26 @@ The website is the primary artifact: it is where the static concept pictures and
   - avoid turning `AGENTS.md` into a large knowledge dump
 
 11. **Some elegant way to keep on prompting when codex is asking for a bunch of permissions**
-    -I occasionally get blocked by promptign due to codex asks for permissions. Sometimes I don't want to auto accept everything but my prompts can get lost or is just annoying
+- I occasionally get blocked by promptign due to codex asks for permissions. Sometimes I don't want to auto accept everything but my prompts can get lost or is just annoying
+
+12. **Approval Flow QoL**
+- Goal: reduce approval fatigue by making the decision path explicit and suggesting durable choices sooner.
+- Website treatment:
+  - one approval mock with three clear actions: `Allow once`, `Allow always for this repo/tool`, and `Ask again`
+  - lightweight follow-up suggestion after repeated approvals: `You keep allowing this. Save it as a rule?`
+  - keep the UI narrow and operational instead of turning it into a settings screen
+- Suggested copy:
+  - "When Codex asks for approval, make the options clearer: allow once, allow always in this repo for this tool/command family, or ask again next time."
+  - "After a few repeated approvals, proactively suggest the narrower permanent rule instead of making the user keep clicking through the same prompt."
+
+13. **Start In Worktree Immediately**
+- Goal: let users create or enter a worktree before sending the first message.
+- Website treatment:
+  - quick action near new-thread/project controls: `Start in worktree`
+  - branch picker before chat begins, so the worktree can be created right away
+  - open into an empty thread already attached to that worktree instead of requiring a first prompt just to initialize it
+- Suggested copy:
+  - "Let users jump into a worktree immediately from the project UI, without spending the first prompt just to get the worktree created."
 
 ## Why this format
 
