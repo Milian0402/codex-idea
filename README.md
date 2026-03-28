@@ -110,6 +110,9 @@ The website is the primary artifact: it is where the static concept pictures and
 - Suggested copy:
   - "Let users jump into a worktree immediately from the project UI, without spending the first prompt just to get the worktree created."
 
+14. **Multiple Popout Windows**
+- Goal: allow users to open more than one popout window at the same time instead of being limited to a single popup window.
+
 ## Why this format
 
 - Capture hypotheses quickly.
