@@ -113,6 +113,11 @@ The website is the primary artifact: it is where the static concept pictures and
 14. **Multiple Popout Windows**
 - Goal: allow users to open more than one popout window at the same time instead of being limited to a single popup window.
 
+15. **Playwright CLI Workflow QoL**
+- Goal: add a more seamless way to do browser-driven tasks with Playwright CLI inside Codex, with less setup and fewer manual steps.
+- Wrong target risk: too easy to operate on the wrong app, tab, file, page, or selection.
+- Weak action verification: hard to prove that a click/paste/import actually landed correctly.
+
 ## Why this format
 
 - Capture hypotheses quickly.
