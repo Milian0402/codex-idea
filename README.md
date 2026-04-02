@@ -118,6 +118,18 @@ The website is the primary artifact: it is where the static concept pictures and
 - Wrong target risk: too easy to operate on the wrong app, tab, file, page, or selection.
 - Weak action verification: hard to prove that a click/paste/import actually landed correctly.
 
+16. **Expandable Findings UI**
+- Goal: make `x findings` clearer and actionable instead of leaving it as unclear static text in the chat.
+- Website treatment:
+  - hovering over or clicking the `x findings` chip should take you directly to the actual finding detail
+  - it should feel like an interactive affordance, not dead text sitting in the chat
+- Suggested copy:
+  - "`x findings` is kinda unclear right now. I can't expand it and it just sits there in the chat."
+  - "There is probably a more elegant solution here, like an inline expandable summary or a cleaner findings panel."
+  - "Hovering over it or clicking it could take you straight to the finding instead of making you hunt for it."
+
+<img width="774" height="226" alt="Expandable Findings UI reference" src="./src/assets/findings-pill-reference.png" />
+
 ## Why this format
 
 - Capture hypotheses quickly.
