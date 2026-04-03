@@ -130,6 +130,13 @@ The website is the primary artifact: it is where the static concept pictures and
 
 <img width="774" height="226" alt="Expandable Findings UI reference" src="./src/assets/findings-pill-reference.png" />
 
+17. **Popout MCP Approval Glitch**
+- Goal: make MCP approval requests in popout windows behave reliably instead of occasionally duplicating and leaving one stuck behind.
+- Suggested copy:
+  - "In a popout window, when Codex asks for MCP stuff, it can occasionally glitch out and ask for the same thing twice."
+  - "When I say yes, one of those requests can just stay there instead of resolving cleanly."
+  - "The approval flow should dedupe identical MCP prompts and clear all matching pending requests once one approval succeeds."
+
 ## Why this format
 
 - Capture hypotheses quickly.
