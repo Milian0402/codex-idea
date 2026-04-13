@@ -140,6 +140,11 @@ The website is the primary artifact: it is where the static concept pictures and
 - Suggested copy:
   - "When Codex is about to do a larger action, show a standard card with what will happen, scope, and undo path, not only file changes."
 
+<img width="920" height="190" alt="Screenshot 2026-04-13 at 13 28 47" src="https://github.com/user-attachments/assets/2e2925f7-7d43-4d45-b4a2-023bd231484b" />
+
+-like screenshots has here
+
+
 ## Why this format
 
 - Capture hypotheses quickly.
