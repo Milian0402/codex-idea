@@ -137,24 +137,6 @@ The website is the primary artifact: it is where the static concept pictures and
   - "When I say yes, one of those requests can just stay there instead of resolving cleanly."
   - "The approval flow should dedupe identical MCP prompts and clear all matching pending requests once one approval succeeds."
 
-18. **Automation Env Path Reliability (`$CODEX_HOME`)**
-- Goal: make automation runs resolve workspace/env paths consistently so memory files and automation assets work without manual absolute-path fallback.
-- Suggested copy:
-  - "Automation runs should reliably resolve `$CODEX_HOME` and related env paths so memory files can be read/written without path hacks."
-  - "If env resolution fails, Codex should surface a clear inline fix suggestion instead of failing silently."
-
-19. **Repo Name Disambiguation in Discovery**
-- Goal: reduce friction when the intended target name differs slightly (for example `codex-ideas` vs `codex-idea`).
-- Suggested copy:
-  - "When I ask for a repo by name and it's close-but-not-exact, Codex should suggest likely matches before failing lookup."
-  - "This should work for both local files and GitHub repos so intent mismatch doesn't burn a full turn."
-
-20. **Large Output Digest Mode**
-- Goal: reduce manual follow-up loops when command/API output is very large.
-- Suggested copy:
-  - "For long outputs, Codex should default to a compact digest with key anomalies and references, plus an easy expand option."
-  - "This helps when sharing with OpenAI: clear pain points, less scroll, and faster decision-making."
-
 ## Why this format
 
 - Capture hypotheses quickly.
