@@ -137,6 +137,16 @@ The website is the primary artifact: it is where the static concept pictures and
   - "When I say yes, one of those requests can just stay there instead of resolving cleanly."
   - "The approval flow should dedupe identical MCP prompts and clear all matching pending requests once one approval succeeds."
 
+18. **Standard Action Cards For Larger Changes**
+- Goal: when Codex is about to do a bigger action, show a standard square/card preview with what will happen, scope, and undo path.
+- Applies to:
+  - file changes
+  - git actions (commit/push/revert)
+  - branch/worktree actions
+  - external actions (PR comments, issue updates, Slack/email sends, automation updates)
+- Suggested copy:
+  - "When Codex is about to do a larger action, show a standard card with what will happen, scope, and undo path, not only file changes."
+
 ## Why this format
 
 - Capture hypotheses quickly.
